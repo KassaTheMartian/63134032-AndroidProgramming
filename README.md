@@ -10,5 +10,5 @@ Chào mừng bạn đến với repository của tôi! Đây là nơi tôi lưu 
 ## Cấu Trúc Thư Mục  
 Ex_... Các bài thực hành cơ bản
 
-![Hình ảnh con mèo](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Android_logo_2023_%28stacked%29.svg/938px-Android_logo_2023_%28stacked%29.svg.png)
+![Android](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Android_logo_2023_%28stacked%29.svg/938px-Android_logo_2023_%28stacked%29.svg.png)
 
