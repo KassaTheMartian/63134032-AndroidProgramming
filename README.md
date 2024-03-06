@@ -7,4 +7,5 @@
 ## Giới Thiệu
 Chào mừng bạn đến với repository của tôi! Đây là nơi tôi lưu trữ bài tập Android môn Lập Trình Thiết Bị Di Động.
 
-## Cấu Trúc Thư Mục
+## Cấu Trúc Thư Mục  
+Ex_... Các bài thực hành cơ bản
