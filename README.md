@@ -10,4 +10,5 @@ Chào mừng bạn đến với repository của tôi! Đây là nơi tôi lưu 
 ## Cấu Trúc Thư Mục  
 Ex_... Các bài thực hành cơ bản
 
-![OpenAI Logo]([https://openai.com/favicon.ico](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Android_logo_2023_%28stacked%29.svg/2560px-Android_logo_2023_%28stacked%29.svg.png)https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Android_logo_2023_%28stacked%29.svg/2560px-Android_logo_2023_%28stacked%29.svg.png)
+![Hình ảnh con mèo](https://i.imgur.com/5zD1234.jpg)
+
