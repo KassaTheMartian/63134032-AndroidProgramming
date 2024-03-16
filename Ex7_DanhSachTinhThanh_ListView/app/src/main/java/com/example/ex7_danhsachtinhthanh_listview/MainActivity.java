@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.view.View;
@@ -18,7 +19,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     // Tại đây khai báo các biến toàn cục
-    // ví dụ các biến tham chiếu đến các điều khiển
+    // Các biến tham chiếu đến các điều khiển
     EditText edtThongTin;
     EditText edtNhap;
     ListView lsvTen;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     void getControls(){
         edtThongTin = (EditText) findViewById(R.id.edtThongTin);
+        edtNhap = (EditText) findViewById(R.id.edtNhap);
         lsvTen = (ListView) findViewById(R.id.lsvTen);
     }
 
@@ -62,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void themPhanTu(View v){
         // Lấy dữ liệu từ điều khiển
-        edtNhap = (EditText) findViewById(R.id.edtNhap);
         String tenNhap = edtNhap.getText().toString();
         // Thêm vào danh sách tên
         dsTen.add(tenNhap);
@@ -72,15 +73,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void xoaPhanTu(View v){
-        edtNhap = (EditText) findViewById(R.id.edtNhap);
-        String tenNhap = edtNhap.getText().toString();
+        String tenXoa = edtThongTin.getText().toString();
 
-        if (dsTen.contains(tenNhap)) {
-            dsTen.remove(tenNhap);
+        if (dsTen.contains(tenXoa)) {
+            dsTen.remove(tenXoa);
             tenAdapter.notifyDataSetChanged();
-            Toast.makeText(this, "Đã xóa " + tenNhap, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Đã xóa " + tenXoa, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this, "Không tồn tại " + tenNhap, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Không tồn tại " + tenXoa, Toast.LENGTH_SHORT).show();
 
         }
 
