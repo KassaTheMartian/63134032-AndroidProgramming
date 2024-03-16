@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhập vào một tên: "/>
+        <EditText
+            android:id="@+id/edtNhap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingVertical="5dp">
+        <Button
+            android:id="@+id/bntNhap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="themPhanTu"
+            android:text="Nhập"
+            android:layout_marginHorizontal="10dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="xoaPhanTu"
+            android:text="Xóa"
+            android:layout_marginHorizontal="10dp"/>
+    </LinearLayout>
+    <EditText
+        android:id="@+id/edtThongTin"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="#9FF3A2"
+        android:ems="10"
+        android:inputType="text"
+        android:paddingLeft="16dp"
+        android:singleLine="false"
+        android:textSize="24sp"
+        />
+
+    <ListView
+        android:id="@+id/lsvTen"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EBFFEB" />
+</LinearLayout>
