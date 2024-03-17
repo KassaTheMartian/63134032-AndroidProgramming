@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:gravity="center_horizontal"
+    android:paddingHorizontal="20dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chương trình tính BMI"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        android:textColor="#501DAA"/>
+
+    <RadioGroup
+        android:id="@+id/radgrp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <RadioButton
+            android:id="@+id/rad_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Châu Á"
+            android:textSize="20dp"
+            android:layout_marginHorizontal="20dp"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/rad_au"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Châu Âu"
+            android:textSize="20dp"
+            android:layout_marginHorizontal="20dp"/>
+    </RadioGroup>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp">
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Chiều cao"
+            android:textSize="30dp" />
+        <EditText
+            android:id="@+id/edt_chieu_cao"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_gravity=""/>
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="Cm"
+            android:textSize="30dp"
+            android:textColor="#236125"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp">
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Cân nặng"
+            android:textSize="30dp" />
+        <EditText
+            android:id="@+id/edt_can_nang"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"/>
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="Kg"
+            android:textSize="30dp"
+            android:textColor="#236125"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bnt_tinh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:onClick="tinhBMI"
+        android:text="Tính"
+        android:textSize="25dp" />
+    <TextView
+        android:id="@+id/edt_ket_qua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Kết quả"
+        android:textAlignment="center"
+        android:textSize="40dp"/>
+
+</LinearLayout>
