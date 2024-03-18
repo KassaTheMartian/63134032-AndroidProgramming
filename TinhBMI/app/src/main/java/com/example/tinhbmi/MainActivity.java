@@ -2,8 +2,8 @@ package com.example.tinhbmi;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,14 +14,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+
+
 public class MainActivity extends AppCompatActivity {
-    public String des;
-    public String gener = "Asia";
+
 
     private EditText edtChieuCao;
     private EditText edtCanNang;
     private TextView edtKetQua;
     private RadioGroup radioGroup;
+    private RadioButton generRdBnt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,20 +49,20 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             double canNang = Double.parseDouble(edtCanNang.getText().toString());
-            double chieuCao = Double.parseDouble(edtChieuCao.getText().toString())/100;
-            double kQ =Math.round((canNang/(chieuCao*chieuCao))*10)/10;
-            radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    if (checkedId == R.id.rad_a) {
-                        gener = "Asia";
-                    }
-                    if (checkedId == R.id.rad_au) {
-                        gener = "Eroupe";
-                    }
-                }
-            });
-            if (gener.equals("Asia")){
+            double chieuCao = Double.parseDouble(edtChieuCao.getText().toString()) / 100;
+            double kQ = Math.floor((canNang / (chieuCao * chieuCao))*10)/10 ;
+
+            String des ="";
+            String gener = "Asia";
+            int selectedId = radioGroup.getCheckedRadioButtonId();
+            RadioButton generRdBnt = (RadioButton) findViewById(selectedId);
+            if (selectedId == -1) {
+                Toast.makeText(MainActivity.this, "Nothing selected",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                gener = generRdBnt.getText().toString();
+            }
+            if (gener.equals("Châu Á")) {
                 if (kQ < 18.5) des = "Gầy";
                 else if (kQ < 23) des = "Bình thường";
                 else if (kQ == 23) des = "Thừa cân";
@@ -68,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
                 else if (kQ < 30) des = "Béo phì độ I";
                 else if (kQ < 35) des = "Béo phì độ II";
                 else if (kQ > 35) des = "Béo phì độ III";
-            } else if (gener.equals("Eroupe")){
+            }
+            else if (gener.equals("Châu Âu")) {
                 if (kQ < 18.5) des = "Gầy";
                 else if (kQ < 25) des = "Bình thường";
                 else if (kQ == 25) des = "Thừa cân";
@@ -77,12 +80,9 @@ public class MainActivity extends AppCompatActivity {
                 else if (kQ < 40) des = "Béo phì độ II";
                 else if (kQ > 40) des = "Béo phì độ III";
             } else des = "";
-            edtKetQua.setText(kQ+"\n"+des);
-        }catch (Exception e){
+            edtKetQua.setText(kQ + "\n" + des);
+        }catch(Exception e){
             Toast.makeText(MainActivity.this, "Vui lòng nhập số hợp lệ", Toast.LENGTH_SHORT).show();
         }
-
-
     }
-
 }
