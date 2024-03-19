@@ -1,4 +1,4 @@
-package com.example.kotlin_noteapp.database.dao
+package com.example.kotlin_noteapp.database
 
 import android.content.Context
 import androidx.room.Database
@@ -13,9 +13,9 @@ abstract class NoteDatabase : RoomDatabase(){
 
     companion object{
         @Volatile
-        private var instance:NoteDatabase?=null
+        private var instance: NoteDatabase?=null
 
-        fun getInstace(context: Context):NoteDatabase{
+        fun getInstace(context: Context): NoteDatabase {
             if(instance == null){
                 instance = Room.databaseBuilder(context, NoteDatabase::class.java, "NoteDatabase").build()
             }
