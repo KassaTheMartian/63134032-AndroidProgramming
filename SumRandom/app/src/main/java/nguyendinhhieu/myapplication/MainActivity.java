@@ -36,19 +36,19 @@ public class MainActivity extends AppCompatActivity {
     public void cong(View v){
         double so1 = Double.parseDouble(et_so1.getText().toString());
         double so2 = Double.parseDouble(et_so2.getText().toString());
-        double kq = Math.floor(so1+so2);
+        double kq = so1+so2;
         et_kq.setText(String.valueOf(kq));
     }
     public void tru(View v){
         double so1 = Double.parseDouble(et_so1.getText().toString());
         double so2 = Double.parseDouble(et_so2.getText().toString());
-        double kq = Math.floor(so1-so2);
+        double kq = so1-so2;
         et_kq.setText(String.valueOf(kq));
     }
     public void nhan(View v){
         double so1 = Double.parseDouble(et_so1.getText().toString());
         double so2 = Double.parseDouble(et_so2.getText().toString());
-        double kq = Math.floor(so1*so2);
+        double kq = so1*so2;
         et_kq.setText(String.valueOf(kq));
     }
     public void chia(View v){
