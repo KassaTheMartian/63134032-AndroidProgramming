@@ -27,7 +27,7 @@ public class TracNghiemFrame extends JFrame {
 	ArrayList<Quiz> listQuiz = new ArrayList<Quiz>();
 	int count = 0;
 	int countKq = 0;
-	
+	int size = 10;
 	JButton btn_a;
 	JButton btn_b;
 	JButton btn_c;
@@ -51,7 +51,12 @@ public class TracNghiemFrame extends JFrame {
 		listQuiz.add(new Quiz("Hoa gì nuôi trẻ sớm khuya\r\n"
 				+ "Tháng 10 em nở tỏa hương phố phường!", "Hoa sữa", "Hoa quỳnh", "Hoa ly", "Hoa kiều"));
 		listQuiz.add(new Quiz("Câu đố mẹo có đáp án: Con mèo nào cực kỳ sợ chuột?", "Doremon", "Mèo máy Kuro", "Linh miêu", "Pikachu"));
-		
+		listQuiz.add(new Quiz("Làm thế nào để con cua được chín chân?","Luộc","Nhờ Thủy Tinh bắt","Hấp","Nướng"));
+		listQuiz.add(new Quiz("Có ba quả táo trên bàn và bạn lấy đi hai quả. Hỏi bạn còn bao nhiêu quả táo?","2 quả","3 quả","4 quả","1 quả"));
+		listQuiz.add(new Quiz("Tôi có 4 cái chân, 1 cái lưng, nhưng không có cơ thể. Tôi là ai?","Cái ghế","Con bò","Con heo","Con voi"));
+		listQuiz.add(new Quiz("Tại sao 30 người đàn ông và 2 người đàn bà đánh nhau tán loạn?","Đánh cờ","Đánh ghen","Chiến tranh","Cướp bóc"));
+		listQuiz.add(new Quiz("Cái gì mà bạn có, khi bạn chia sẻ với tôi, nhưng khi bạn chia sẻ bạn sẽ không có nó?","Bí mật","Kiến thức","Hiểu biết","Tiền bạc"));
+
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 892, 642);
@@ -160,36 +165,46 @@ public class TracNghiemFrame extends JFrame {
 		});
 	}
 	
-	public void hienThiDapAn(JButton bnt) {
-		if (bnt.getText().equals(listQuiz.get(count).getDapAnDung())){
+	public void hienThiDapAn(JButton btn) {
+		if (btn.getText().equals(listQuiz.get(count).getDapAnDung())){
 			countKq++;
-			bnt.setBackground(new Color(0x99FF00)); // Thay đổi màu nền thành màu xanh lá
-			bnt.setForeground(Color.BLUE); // Đặt màu chữ của nút btn_a thành màu đỏ
-			bnt.setEnabled(false); // Vô hiệu hóa nút btn_a
-            Timer timer = new Timer(500, new ActionListener() {
+			btn.setBackground(new Color(0x99FF00)); // Thay đổi màu nền thành màu xanh lá
+			btn.setForeground(Color.BLUE); // Đặt màu chữ của nút btn_a thành màu đỏ
+			btn_a.setEnabled(false); // Vô hiệu hóa nút btn_a
+			btn_b.setEnabled(false); 
+			btn_c.setEnabled(false); 
+			btn_d.setEnabled(false);             Timer timer = new Timer(500, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     newQues();
-                    bnt.setEnabled(true); // Vô hiệu hóa nút btn_a
-                    bnt.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
-                    bnt.setForeground(Color.BLACK);
+        			btn_a.setEnabled(true); // Vô hiệu hóa nút btn_a
+        			btn_b.setEnabled(true); 
+        			btn_c.setEnabled(true); 
+        			btn_d.setEnabled(true);                    btn.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
+                    btn.setForeground(Color.BLACK);
                     ((Timer)e.getSource()).stop(); // Dừng timer sau khi đã chuyển câu hỏi mới
                 }
             });
             timer.setRepeats(false); // Chỉ chạy một lần
             timer.start(); // Bắt đầu timer
 		}else {
-			bnt.setBackground(Color.RED); // Thay đổi màu nền thành màu xanh lá
-			bnt.setForeground(Color.WHITE); // Đặt màu chữ của nút btn_a thành màu đỏ
+			btn.setBackground(Color.RED); // Thay đổi màu nền thành màu xanh lá
+			btn.setForeground(Color.WHITE); // Đặt màu chữ của nút btn_a thành màu đỏ
 
-			bnt.setEnabled(false); // Vô hiệu hóa nút btn_a
+			btn_a.setEnabled(false); // Vô hiệu hóa nút btn_a
+			btn_b.setEnabled(false); 
+			btn_c.setEnabled(false); 
+			btn_d.setEnabled(false); 
             Timer timer = new Timer(500, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     newQues();
-                    bnt.setEnabled(true); // Vô hiệu hóa nút btn_a
-                    bnt.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
-                    bnt.setForeground(Color.BLACK);
+        			btn_a.setEnabled(true); // Vô hiệu hóa nút btn_a
+        			btn_b.setEnabled(true); 
+        			btn_c.setEnabled(true); 
+        			btn_d.setEnabled(true);                         
+        			btn.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
+        			btn.setForeground(Color.BLACK);
                     ((Timer)e.getSource()).stop(); // Dừng timer sau khi đã chuyển câu hỏi mới
                 }
             });
@@ -220,7 +235,7 @@ public class TracNghiemFrame extends JFrame {
 		mergeQuiz();
 		count = 0;
 		countKq = 0;
-		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1) +"\\"+ listQuiz.size() );
+		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1) +"\\"+ size);
 		lbl_diem.setText("Điểm: " + String.valueOf(countKq));
 		txtr_cau_hoi.setText(listQuiz.get(count).getDe());
 		setAns(listQuiz.get(count));
@@ -230,12 +245,20 @@ public class TracNghiemFrame extends JFrame {
 		lbl_diem.setText("Điểm: " + String.valueOf(countKq));
 		
 		count++;
-		if(count >= listQuiz.size()) {
-			JOptionPane hopThoai = new JOptionPane();
-			hopThoai.showMessageDialog(this, "Bạn trả lời đúng " + countKq +"\\"+count+"câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+		if(count >= size) {
+			if (count == countKq) {
+				JOptionPane hopThoai = new JOptionPane();
+				hopThoai.showMessageDialog(this, "Bạn thật xuất sắc trả lời đúng hết " + countKq +"\\"+count+"câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+			}else if (countKq > (count/2)) {
+				JOptionPane hopThoai = new JOptionPane();
+				hopThoai.showMessageDialog(this, "Bạn trả lời đúng " + countKq +"\\"+count+"câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+			}else {
+				JOptionPane hopThoai = new JOptionPane();
+				hopThoai.showMessageDialog(this, "Thật tiếc bạn chỉ trả lời đúng " + countKq +"\\"+count+"câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+			}
 			newGame();
 		}
-		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1) +"\\"+ listQuiz.size() );
+		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1) +"\\"+ size );
 		txtr_cau_hoi.setText(listQuiz.get(count).getDe());
 		setAns(listQuiz.get(count));
 	}
