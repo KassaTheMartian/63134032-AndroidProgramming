@@ -290,7 +290,7 @@ public class TracNghiemFrame extends JFrame {
 			lbl_diem_cao_nhat.setText("Điểm cao nhất: " + String.valueOf(countKq));
 
 		count++;
-		if(count >= size) {
+		if(count == size) {
 			if (count == countKq) {
 				JOptionPane hopThoai = new JOptionPane();
 				hopThoai.showMessageDialog(this, "Bạn thật xuất sắc trả lời đúng hết " + countKq +"\\"+count+" câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
