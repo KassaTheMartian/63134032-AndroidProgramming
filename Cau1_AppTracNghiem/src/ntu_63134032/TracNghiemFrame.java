@@ -59,7 +59,7 @@ public class TracNghiemFrame extends JFrame {
 		listQuiz.add(new Quiz("Trò gì càng chơi càng ra nước", "Cờ vua", "Kéo co", "Chèo thuyền", "Bắn cung"));
 		listQuiz.add(new Quiz("Hoa gì nuôi trẻ sớm khuya\r\n"
 				+ "Tháng 10 em nở tỏa hương phố phường!", "Hoa sữa", "Hoa quỳnh", "Hoa ly", "Hoa kiều"));
-		listQuiz.add(new Quiz("Câu đố mẹo có đáp án: Con mèo nào cực kỳ sợ chuột?", "Doremon", "Mèo máy Kuro", "Linh miêu", "Pikachu"));
+		listQuiz.add(new Quiz("Con mèo nào cực kỳ sợ chuột?", "Doremon", "Mèo máy Kuro", "Linh miêu", "Pikachu"));
 		listQuiz.add(new Quiz("Làm thế nào để con cua được chín chân?","Luộc","Nhờ Thủy Tinh bắt","Hấp","Nướng"));
 		listQuiz.add(new Quiz("Có ba quả táo trên bàn và bạn lấy đi hai quả. Hỏi bạn còn \nbao nhiêu quả táo?","2 quả","3 quả","4 quả","1 quả"));
 		listQuiz.add(new Quiz("Tôi có 4 cái chân, 1 cái lưng, nhưng không có cơ thể. Tôi là ai?","Cái ghế","Con bò","Con heo","Con voi"));
