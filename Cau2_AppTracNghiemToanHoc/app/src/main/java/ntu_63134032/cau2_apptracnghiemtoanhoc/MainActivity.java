@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
         count = 0;
         countKq = 0;
         seconds = 0;
-        tvCount.setText((count+1) + "\\" + size);
+        tvCount.setText((count) + "\\" + size);
         tvScore.setText("Score\n" + countKq);
         tvDe.setText(listQuiz.get(count).getChuoiPhepToan());
         setAns(listQuiz.get(count));
@@ -120,12 +120,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void newQues(){
         count++;
-
-        tvScore.setText("Score\n" + countKq);
         if(count == size) {
             showMessageBox(this);
         }
-        tvCount.setText((count + 1) + "\\" + size);
+        tvCount.setText((count) + "\\" + size);
+        tvScore.setText("Score\n" + countKq);
+
         setAns(listQuiz.get(count));
     }
     public void setAns(Quiz quiz){
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
     // Hàm để hiển thị hộp thoại
     private void showMessageBox(Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Hoàn thành"); // Tiêu đề của hộp thoại
+        builder.setTitle("Chúc mừng"); // Tiêu đề của hộp thoại
         builder.setMessage("Bạn trả lời đúng " + countKq + "\\" + count +" câu hỏi" +"\ntrong thời gian " + tvTime.getText().toString()); // Nội dung của hộp thoại
 
         // Thiết lập nút "OK"
