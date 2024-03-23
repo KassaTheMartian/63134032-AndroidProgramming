@@ -1,26 +1,21 @@
 package ntu_63134032;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import ntu_63134032.Quiz;
-
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
-import javax.swing.ImageIcon;
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Canvas;
+
 
 public class TracNghiemFrame extends JFrame {
 
@@ -50,9 +45,6 @@ public class TracNghiemFrame extends JFrame {
 		listQuiz.add(new Quiz("Cái gì dài như trái chuối, cầm 1 lúc thì nó chảy nước ra?", "Que kem", "Con giun", "Con ốc sên", "Trái chuối"));
 		listQuiz.add(new Quiz("Con gì mang được cả miếng gỗ lớn nhưng không mang được hòn sỏi?", "Con sông", "Con voi", "Con cá voi", "Con người"));
 	
-		
-		
-		
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,7 +86,6 @@ public class TracNghiemFrame extends JFrame {
 		txtr_cau_hoi.setBackground(new Color(255, 255, 255));
 		txtr_cau_hoi.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		txtr_cau_hoi.setText("Câu hỏi");
-		txtr_cau_hoi.setEnabled(false);
 		txtr_cau_hoi.setEditable(false);
 		txtr_cau_hoi.setBounds(126, 86, 608, 172);
 		contentPane.add(txtr_cau_hoi);
@@ -111,20 +102,27 @@ public class TracNghiemFrame extends JFrame {
 		lblFunQuiz.setBounds(685, 10, 183, 57);
 		contentPane.add(lblFunQuiz);
 		
-		JLabel lblim = new JLabel("Điểm: ");
-		lblim.setHorizontalAlignment(SwingConstants.LEFT);
-		lblim.setForeground(new Color(153, 0, 153));
-		lblim.setFont(new Font("Cascadia Code", Font.BOLD | Font.ITALIC, 26));
-		lblim.setBounds(25, 10, 132, 57);
-		contentPane.add(lblim);
+		JLabel lbl_diem = new JLabel("Điểm: ");
+		lbl_diem.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_diem.setForeground(new Color(153, 0, 153));
+		lbl_diem.setFont(new Font("Cascadia Code", Font.BOLD | Font.ITALIC, 26));
+		lbl_diem.setBounds(25, 10, 132, 57);
+		contentPane.add(lbl_diem);
 		
 		JButton bnt_new_game = new JButton("New Game");
 		bnt_new_game.setBackground(new Color(255, 255, 204));
 		bnt_new_game.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		bnt_new_game.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-
+				mergeQuiz();
+				lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1));
+				lbl_diem.setText("Điểm: " + String.valueOf(countKq));
+				txtr_cau_hoi.setText(listQuiz.get(count).getDe());
+				
+				btn_a.setText(listQuiz.get(count).getDapAnDung());
+				btn_b.setText(listQuiz.get(count).getDapAnSai1());
+				btn_c.setText(listQuiz.get(count).getDapAnSai2());
+				btn_d.setText(listQuiz.get(count).getDapAnSai3());
 			}
 		});
 		bnt_new_game.setBounds(744, 237, 105, 21);
@@ -132,6 +130,6 @@ public class TracNghiemFrame extends JFrame {
 	}
 	
 	public void mergeQuiz() {
-		
+        Collections.shuffle(listQuiz);
 	}
 }
