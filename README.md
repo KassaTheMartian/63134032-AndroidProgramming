@@ -8,7 +8,8 @@
 Chào mừng bạn đến với repository của tôi! Đây là nơi tôi lưu trữ bài tập Android môn Lập Trình Thiết Bị Di Động.
 
 ## Cấu Trúc Thư Mục  
-Ex_... Các bài thực hành cơ bản
+Ex_... Các bài thực hành cơ bản  
+Cau... Các bài thi giữa kì
 
 ![Android](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Android_logo_2023_%28stacked%29.svg/938px-Android_logo_2023_%28stacked%29.svg.png)
 
