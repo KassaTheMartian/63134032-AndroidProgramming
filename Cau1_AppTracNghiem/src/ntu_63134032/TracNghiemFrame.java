@@ -25,22 +25,28 @@ public class TracNghiemFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	ArrayList<Quiz> listQuiz = new ArrayList<Quiz>();
-	int count = 0;
-	int countKq = 0;
-	int countKqMax = 0;
-	int size = 10;
-	JButton btn_a;
-	JButton btn_b;
-	JButton btn_c;
-	JButton btn_d;
+	private ArrayList<Quiz> listQuiz = new ArrayList<Quiz>();
+	private int count = 0;
+	private int countKq = 0;
+	private int countKqMax = 0;
+	private int size = 10;
+	private Integer[] soCauHoi = {5 ,10, 15};
+
 	
-	JTextArea txtr_cau_hoi;
+	private JButton btn_a;
+	private JButton btn_b;
+	private JButton btn_c;
+	private JButton btn_d;
+	private JButton bnt_new_game;
 	
-	JLabel lbl_cau_hoi;
-	JLabel lblFunQuiz;
-	JLabel lbl_diem;
+	private JTextArea txtr_cau_hoi;
+	
+	private JLabel lbl_cau_hoi;
+	private JLabel lblFunQuiz;
+	private JLabel lbl_diem;
 	private JLabel lbl_diem_cao_nhat;
+	
+	private JComboBox so_cau_hoi;
 	
 	public TracNghiemFrame() {
 		listQuiz.add(new Quiz("Đuôi thì chẳng thấy, mà có hai đầu?", "Cây cầu", "Cây tre", "Con giun", "Con ốc sên"));
@@ -125,11 +131,11 @@ public class TracNghiemFrame extends JFrame {
 		lbl_diem.setBounds(25, 10, 132, 57);
 		contentPane.add(lbl_diem);
 		
-		JButton bnt_new_game = new JButton("New Game");
+		bnt_new_game = new JButton("New Game");
 		bnt_new_game.setBackground(new Color(255, 255, 204));
 		bnt_new_game.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
-		bnt_new_game.setBounds(744, 237, 105, 25);
+		bnt_new_game.setBounds(744, 233, 105, 25);
 		contentPane.add(bnt_new_game);
 		
 		lbl_diem_cao_nhat = new JLabel("Điểm cao nhất: 0");
@@ -139,12 +145,13 @@ public class TracNghiemFrame extends JFrame {
 		lbl_diem_cao_nhat.setBounds(194, 10, 290, 57);
 		contentPane.add(lbl_diem_cao_nhat);
 		
-		JComboBox so_cau_hoi = new JComboBox();
-		so_cau_hoi.setBounds(744, 206, 105, 21);
+		so_cau_hoi = new JComboBox(soCauHoi);
+		so_cau_hoi.setBounds(744, 202, 105, 25);
 		contentPane.add(so_cau_hoi);
 		
-		newGame();
 
+        
+		newGame();
 		
 		btn_a.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -178,6 +185,15 @@ public class TracNghiemFrame extends JFrame {
 				newGame();
 			}
 		});
+		
+		so_cau_hoi.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JComboBox<Integer> cb = (JComboBox<Integer>) e.getSource();
+                size = (Integer) cb.getSelectedItem();
+                System.out.println("Selected size: " + size);
+            }
+        });
 	}
 	
 	// Hàm hiển thị đáp án và chuyển qua câu tiếp theo
@@ -273,13 +289,13 @@ public class TracNghiemFrame extends JFrame {
 		if(count >= size) {
 			if (count == countKq) {
 				JOptionPane hopThoai = new JOptionPane();
-				hopThoai.showMessageDialog(this, "Bạn thật xuất sắc trả lời đúng hết " + countKq +"\\"+count+"câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+				hopThoai.showMessageDialog(this, "Bạn thật xuất sắc trả lời đúng hết " + countKq +"\\"+count+" câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
 			}else if (countKq > (count/2)) {
 				JOptionPane hopThoai = new JOptionPane();
-				hopThoai.showMessageDialog(this, "Bạn trả lời đúng " + countKq +"\\"+count+"câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+				hopThoai.showMessageDialog(this, "Bạn trả lời đúng " + countKq +"\\"+count+" câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
 			}else {
 				JOptionPane hopThoai = new JOptionPane();
-				hopThoai.showMessageDialog(this, "Thật tiếc bạn chỉ trả lời đúng " + countKq +"\\"+count+"câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+				hopThoai.showMessageDialog(this, "Thật tiếc bạn chỉ trả lời đúng " + countKq +"\\"+count+" câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
 			}
 			newGame();
 		}
