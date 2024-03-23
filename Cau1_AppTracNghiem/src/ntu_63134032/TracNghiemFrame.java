@@ -165,22 +165,22 @@ public class TracNghiemFrame extends JFrame {
 		});
 	}
 	
+	// Hàm hiển thị đáp án và chuyển qua câu tiếp theo
 	public void hienThiDapAn(JButton btn) {
 		if (btn.getText().equals(listQuiz.get(count).getDapAnDung())){
 			countKq++;
 			btn.setBackground(new Color(0x99FF00)); // Thay đổi màu nền thành màu xanh lá
 			btn.setForeground(Color.BLUE); // Đặt màu chữ của nút btn_a thành màu đỏ
-			btn_a.setEnabled(false); // Vô hiệu hóa nút btn_a
-			btn_b.setEnabled(false); 
-			btn_c.setEnabled(false); 
-			btn_d.setEnabled(false);             Timer timer = new Timer(500, new ActionListener() {
+			// Vô hiệu hóa các nút
+			choPhepBam(false);          
+			Timer timer = new Timer(175, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                	// Chuyển qua câu hỏi mới
                     newQues();
-        			btn_a.setEnabled(true); // Vô hiệu hóa nút btn_a
-        			btn_b.setEnabled(true); 
-        			btn_c.setEnabled(true); 
-        			btn_d.setEnabled(true);                    btn.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
+                    // Bỏ vô hiệu hóa
+                    choPhepBam(true);                                  
+        			btn.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
                     btn.setForeground(Color.BLACK);
                     ((Timer)e.getSource()).stop(); // Dừng timer sau khi đã chuyển câu hỏi mới
                 }
@@ -190,19 +190,16 @@ public class TracNghiemFrame extends JFrame {
 		}else {
 			btn.setBackground(Color.RED); // Thay đổi màu nền thành màu xanh lá
 			btn.setForeground(Color.WHITE); // Đặt màu chữ của nút btn_a thành màu đỏ
-
-			btn_a.setEnabled(false); // Vô hiệu hóa nút btn_a
-			btn_b.setEnabled(false); 
-			btn_c.setEnabled(false); 
-			btn_d.setEnabled(false); 
-            Timer timer = new Timer(500, new ActionListener() {
+			
+			// Vô hiệu hóa các nút
+			choPhepBam(false);
+            Timer timer = new Timer(175, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
+                	// Chuyển qua câu hỏi mới
                     newQues();
-        			btn_a.setEnabled(true); // Vô hiệu hóa nút btn_a
-        			btn_b.setEnabled(true); 
-        			btn_c.setEnabled(true); 
-        			btn_d.setEnabled(true);                         
+                    // Bỏ vô hiệu hóa
+                    choPhepBam(true);                      
         			btn.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
         			btn.setForeground(Color.BLACK);
                     ((Timer)e.getSource()).stop(); // Dừng timer sau khi đã chuyển câu hỏi mới
@@ -213,11 +210,20 @@ public class TracNghiemFrame extends JFrame {
             }
 	}
 
+	// Hàm dùng để vô hiệu hóa nút bấm khi đang hiện câu hỏi
+	public void choPhepBam(boolean b) {
+		btn_a.setEnabled(b); 
+		btn_b.setEnabled(b); 
+		btn_c.setEnabled(b); 
+		btn_d.setEnabled(b); 
+	}
 	
+	// Hàm trộn các câu hỏi
 	public void mergeQuiz() {
         Collections.shuffle(listQuiz);
 	}
 	
+	// Hàm trộn và hiển thị các câu trả lời
 	public void setAns(Quiz quiz) {
         ArrayList<String> options = new ArrayList<>();
         options.add(quiz.getDapAnDung());
@@ -231,6 +237,7 @@ public class TracNghiemFrame extends JFrame {
 		btn_d.setText(options.get(3));
 	}
 	
+	// Hàm tạo mới game
 	public void newGame() {
 		mergeQuiz();
 		count = 0;
@@ -241,6 +248,7 @@ public class TracNghiemFrame extends JFrame {
 		setAns(listQuiz.get(count));
 	}
 	
+	// Hàm chuyển qua câu hỏi tiếp theo
 	public void newQues() {
 		lbl_diem.setText("Điểm: " + String.valueOf(countKq));
 		
