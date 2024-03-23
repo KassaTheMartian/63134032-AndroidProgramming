@@ -46,7 +46,10 @@ public class TracNghiemFrame extends JFrame {
 		listQuiz.add(new Quiz("Trong 1 cuộc thi chạy, nếu bạn vượt qua người thứ 2 bạn sẽ đứng thứ mấy?", "Thứ hai", "Thứ nhất", "Chủ nhật", "Thứ ba"));
 		listQuiz.add(new Quiz("Cái gì dài như trái chuối, cầm 1 lúc thì nó chảy nước ra?", "Que kem", "Con giun", "Con ốc sên", "Trái chuối"));
 		listQuiz.add(new Quiz("Con gì mang được cả miếng gỗ lớn nhưng không mang được hòn sỏi?", "Con sông", "Con voi", "Con cá voi", "Con người"));
-	
+		listQuiz.add(new Quiz("Trò gì càng chơi càng ra nước", "Cờ vua", "Kéo co", "Chèo thuyền", "Bắn cung"));
+		listQuiz.add(new Quiz("Hoa gì nuôi trẻ sớm khuya\r\n"
+				+ "Tháng 10 em nở tỏa hương phố phường!", "Hoa sữa", "Hoa quỳnh", "Hoa ly", "Hoa kiều"));
+		listQuiz.add(new Quiz("Câu đố mẹo có đáp án: Con mèo nào cực kỳ sợ chuột?", "Doremon", "Mèo máy Kuro", "Linh miêu", "Pikachu"));
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -189,7 +192,7 @@ public class TracNghiemFrame extends JFrame {
 		mergeQuiz();
 		count = 0;
 		countKq = 0;
-		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1));
+		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1) +"\\"+ listQuiz.size() );
 		lbl_diem.setText("Điểm: " + String.valueOf(countKq));
 		txtr_cau_hoi.setText(listQuiz.get(count).getDe());
 		setAns(listQuiz.get(count));
@@ -201,10 +204,10 @@ public class TracNghiemFrame extends JFrame {
 		count++;
 		if(count >= listQuiz.size()) {
 			JOptionPane hopThoai = new JOptionPane();
-			hopThoai.showMessageDialog(this, "Bạn trả lời đúng " + countKq + " câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+			hopThoai.showMessageDialog(this, "Bạn trả lời đúng " + countKq +"\\"+count+"câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
 			newGame();
 		}
-		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1));
+		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1) +"\\"+ listQuiz.size() );
 		txtr_cau_hoi.setText(listQuiz.get(count).getDe());
 		setAns(listQuiz.get(count));
 	}
