@@ -15,20 +15,27 @@ public class Quiz {
         this.chuoiPhepToan = taoChuoiPhepToan(n);
     }
 
-    public String taoChuoiPhepToan(int n){
+    public static String taoChuoiPhepToan(int n) {
         Random rand = new Random();
         StringBuilder builder = new StringBuilder();
-        // Tạo số đầu tiên
+
+        // Thêm số đầu tiên vào chuỗi
         builder.append(rand.nextInt(10)); // Tạo số ngẫu nhiên từ 0 đến 9
 
-        // Tạo n-1 phép toán và số kèm theo
+        // Thêm n-1 phép toán và số kèm theo
         for (int i = 0; i < n - 1; i++) {
-            // Chọn ngẫu nhiên một toán tử từ +, -, *, /
-            char operator = "+-*/".charAt(rand.nextInt(4));
+            // Chọn ngẫu nhiên một toán tử từ +, -, *
+            char operator = "+-*".charAt(rand.nextInt(3));
             // Thêm toán tử vào chuỗi
             builder.append(" ").append(operator).append(" ");
             // Thêm số tiếp theo vào chuỗi
-            builder.append(rand.nextInt(10)); // Tạo số ngẫu nhiên từ 0 đến 9
+            int nextNumber = rand.nextInt(10);
+            if (operator == '/' && nextNumber == 0) {
+                // Nếu là phép chia và số kế tiếp là 0, thì chuyển thành phép cộng
+                builder.append(1); // Thêm số 1 thay vì số 0
+            } else {
+                builder.append(nextNumber);
+            }
         }
 
         return builder.toString();

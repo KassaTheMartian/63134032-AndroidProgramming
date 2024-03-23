@@ -117,4 +117,17 @@
         android:paddingLeft="35dp"
         android:layout_marginTop="25dp"
         android:layout_marginHorizontal="30dp"/>
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/b612_mono"
+        android:hint="0/10"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        />
 </LinearLayout>
