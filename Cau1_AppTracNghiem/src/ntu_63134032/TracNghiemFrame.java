@@ -65,6 +65,7 @@ public class TracNghiemFrame extends JFrame {
 		listQuiz.add(new Quiz("Tôi có 4 cái chân, 1 cái lưng, nhưng không có cơ thể. Tôi là ai?","Cái ghế","Con bò","Con heo","Con voi"));
 		listQuiz.add(new Quiz("Tại sao 30 người đàn ông và 2 người đàn bà đánh nhau tán loạn?","Đánh cờ","Đánh ghen","Chiến tranh","Cướp bóc"));
 		listQuiz.add(new Quiz("Cái gì mà bạn có, khi bạn chia sẻ với tôi, nhưng khi bạn chia sẻ \nbạn sẽ không có nó?","Bí mật","Kiến thức","Hiểu biết","Tiền bạc"));
+		listQuiz.add(new Quiz("Ai đẹp trai nhất Việt Nam","Nguyễn Đình Hiệu","Nguyễn Đình Hiệu","Nguyễn Đình Hiệu","Nguyễn Đình Hiệu"));
 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
