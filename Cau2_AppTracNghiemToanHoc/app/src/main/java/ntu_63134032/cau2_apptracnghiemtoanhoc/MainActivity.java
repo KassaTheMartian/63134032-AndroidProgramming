@@ -25,15 +25,17 @@ public class MainActivity extends AppCompatActivity {
     private int count = 0;
     private int countKq = 0;
     private int seconds = 0;
-    private int size = 5;
+    private int size = 10;
     private Button btnA;
     private Button btnB;
     private Button btnC;
     private Button btnD;
+    private Button btnNewGame;
     private TextView tvDe;
     private TextView tvScore;
     private TextView tvTime;
     private TextView tvCount;
+
 
     private Handler handler = new Handler();
 
@@ -91,6 +93,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 chonDapAn(btnD);
+            }
+        });
+        btnNewGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                newGame();
             }
         });
     }
@@ -178,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
         btnB = (Button) findViewById(R.id.bnt_b);
         btnC = (Button) findViewById(R.id.bnt_c);
         btnD = (Button) findViewById(R.id.bnt_d);
+        btnNewGame = (Button) findViewById(R.id.btn_new_game);
         tvDe = (TextView) findViewById(R.id.tv_de);
         tvScore = (TextView) findViewById(R.id.tv_score);
         tvTime = (TextView) findViewById(R.id.tv_time);
