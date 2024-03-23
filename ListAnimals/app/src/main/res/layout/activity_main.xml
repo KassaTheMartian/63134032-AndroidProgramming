@@ -16,7 +16,7 @@
         android:layout_height="200dp"/>
     <EditText
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginHorizontal="10dp"
         android:id="@+id/et_name"
         android:text="Tên con vật"
         android:textSize="30dp"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         />
     <EditText
-        android:layout_marginLeft="10dp"
+        android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="10dp"
         android:id="@+id/et_description"
         android:text="Mô tả"

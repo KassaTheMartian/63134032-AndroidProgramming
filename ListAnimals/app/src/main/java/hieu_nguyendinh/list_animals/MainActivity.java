@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         });
         getControls();
         listAnimals = new ArrayList<>();
-        listAnimals.add(new Animal("Dê","goat","Con vật có sừng ăn cỏ"));
+        listAnimals.add(new Animal("Dê","goat","Nguyễn Trần Việt Hoàng"));
         listAnimals.add(new Animal("Cừu","sheep","Con vật nhiều lông ăn cỏ"));
         listAnimals.add(new Animal("Hổ","tiger","Con vật có vằn ăn thịt"));
         listAnimals.add(new Animal("Mèo", "cat", "Con hổ nhưng mà bé hơn"));
@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity {
     public void getControls(){
         lvAnimals = findViewById(R.id.lv_animal);
         ivAnimal = findViewById(R.id.iv_animal);
-        etDes = findViewById(R.id.et_name);
-        etName = findViewById(R.id.et_description);
-        tvImagefile = findViewById(R.id.tv_selected_file)
+        etDes = findViewById(R.id.et_description);
+        etName = findViewById(R.id.et_name);
+        tvImagefile = findViewById(R.id.tv_selected_file);
     }
 
     public void selectFile(View view) {
