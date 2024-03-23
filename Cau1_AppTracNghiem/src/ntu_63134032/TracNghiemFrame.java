@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
+import javax.swing.JOptionPane;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -35,6 +36,7 @@ public class TracNghiemFrame extends JFrame {
 	
 	JLabel lbl_cau_hoi;
 	JLabel lblFunQuiz;
+	JLabel lbl_diem;
 	
 	public TracNghiemFrame() {
 		listQuiz.add(new Quiz("Đuôi thì chẳng thấy, mà có hai đầu?", "Cây cầu", "Cây tre", "Con giun", "Con ốc sên"));
@@ -102,7 +104,7 @@ public class TracNghiemFrame extends JFrame {
 		lblFunQuiz.setBounds(685, 10, 183, 57);
 		contentPane.add(lblFunQuiz);
 		
-		JLabel lbl_diem = new JLabel("Điểm: ");
+		lbl_diem = new JLabel("Điểm: ");
 		lbl_diem.setHorizontalAlignment(SwingConstants.LEFT);
 		lbl_diem.setForeground(new Color(153, 0, 153));
 		lbl_diem.setFont(new Font("Cascadia Code", Font.BOLD | Font.ITALIC, 26));
@@ -112,24 +114,98 @@ public class TracNghiemFrame extends JFrame {
 		JButton bnt_new_game = new JButton("New Game");
 		bnt_new_game.setBackground(new Color(255, 255, 204));
 		bnt_new_game.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		bnt_new_game.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				mergeQuiz();
-				lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1));
-				lbl_diem.setText("Điểm: " + String.valueOf(countKq));
-				txtr_cau_hoi.setText(listQuiz.get(count).getDe());
-				
-				btn_a.setText(listQuiz.get(count).getDapAnDung());
-				btn_b.setText(listQuiz.get(count).getDapAnSai1());
-				btn_c.setText(listQuiz.get(count).getDapAnSai2());
-				btn_d.setText(listQuiz.get(count).getDapAnSai3());
-			}
-		});
+
 		bnt_new_game.setBounds(744, 237, 105, 21);
 		contentPane.add(bnt_new_game);
+		
+		newGame();
+
+		
+		btn_a.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btn_a.getText().equals(listQuiz.get(count).getDapAnDung())){
+					countKq++;
+				}
+				
+				newQues();
+			}
+		});
+		
+		btn_b.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btn_b.getText().equals(listQuiz.get(count).getDapAnDung())){
+					countKq++;
+				}
+				
+				newQues();
+			}
+		});
+		
+		btn_c.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btn_c.getText().equals(listQuiz.get(count).getDapAnDung())){
+					countKq++;
+				}
+				
+				newQues();
+			}
+		});
+		
+		btn_d.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (btn_d.getText().equals(listQuiz.get(count).getDapAnDung())){
+					countKq++;
+				}
+				
+				newQues();
+			}
+		});
+		
+		bnt_new_game.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				newGame();
+			}
+		});
 	}
 	
 	public void mergeQuiz() {
         Collections.shuffle(listQuiz);
+	}
+	
+	public void setAns(Quiz quiz) {
+        ArrayList<String> options = new ArrayList<>();
+        options.add(quiz.getDapAnDung());
+        options.add(quiz.getDapAnSai1());
+        options.add(quiz.getDapAnSai2());
+        options.add(quiz.getDapAnSai3());
+        Collections.shuffle(options); // Trộn thứ tự các lựa chọn
+		btn_a.setText(options.get(0));
+		btn_b.setText(options.get(1));
+		btn_c.setText(options.get(2));
+		btn_d.setText(options.get(3));
+	}
+	
+	public void newGame() {
+		mergeQuiz();
+		count = 0;
+		countKq = 0;
+		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1));
+		lbl_diem.setText("Điểm: " + String.valueOf(countKq));
+		txtr_cau_hoi.setText(listQuiz.get(count).getDe());
+		setAns(listQuiz.get(count));
+	}
+	
+	public void newQues() {
+		lbl_diem.setText("Điểm: " + String.valueOf(countKq));
+		
+		count++;
+		if(count >= listQuiz.size()) {
+			JOptionPane hopThoai = new JOptionPane();
+			hopThoai.showMessageDialog(this, "Bạn trả lời đúng " + countKq + " câu hỏi!!\n Bấm OK để tiếp tục chơi tiếp");
+			newGame();
+		}
+		lbl_cau_hoi.setText("Câu: " + String.valueOf(count+1));
+		txtr_cau_hoi.setText(listQuiz.get(count).getDe());
+		setAns(listQuiz.get(count));
 	}
 }
