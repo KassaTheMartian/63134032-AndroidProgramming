@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JTextArea;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,32 +56,33 @@ public class TracNghiemFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 892, 642);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(204, 255, 204));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		btn_a = new JButton("A");
-		btn_a.setBackground(new Color(204, 255, 255));
+		btn_a.setBackground(new Color(153, 255, 255));
 		btn_a.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_a.setBounds(25, 308, 400, 125);
 		contentPane.add(btn_a);
 		
 		btn_b = new JButton("B");
-		btn_b.setBackground(new Color(51, 255, 204));
+		btn_b.setBackground(new Color(153, 255, 255));
 		btn_b.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_b.setBounds(25, 458, 400, 125);
 		contentPane.add(btn_b);
 
 		btn_c = new JButton("C");
-		btn_c.setBackground(new Color(255, 255, 153));
+		btn_c.setBackground(new Color(153, 255, 255));
 		btn_c.setForeground(new Color(0, 0, 0));
 		btn_c.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_c.setBounds(449, 308, 400, 125);
 		contentPane.add(btn_c);
 		
 		btn_d = new JButton("D");
-		btn_d.setBackground(new Color(51, 255, 0));
+		btn_d.setBackground(new Color(153, 255, 255));
 		btn_d.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btn_d.setBounds(449, 458, 400, 125);
 		contentPane.add(btn_d);
@@ -126,41 +128,28 @@ public class TracNghiemFrame extends JFrame {
 		
 		btn_a.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (btn_a.getText().equals(listQuiz.get(count).getDapAnDung())){
-					countKq++;
-				}
-				
-				newQues();
+				hienThiDapAn(btn_a);
 			}
 		});
 		
 		btn_b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (btn_b.getText().equals(listQuiz.get(count).getDapAnDung())){
-					countKq++;
-				}
-				
-				newQues();
+				hienThiDapAn(btn_b);
+
 			}
 		});
 		
 		btn_c.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (btn_c.getText().equals(listQuiz.get(count).getDapAnDung())){
-					countKq++;
-				}
-				
-				newQues();
+				hienThiDapAn(btn_c);
+
 			}
 		});
 		
 		btn_d.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (btn_d.getText().equals(listQuiz.get(count).getDapAnDung())){
-					countKq++;
-				}
-				
-				newQues();
+				hienThiDapAn(btn_d);
+
 			}
 		});
 		
@@ -170,6 +159,45 @@ public class TracNghiemFrame extends JFrame {
 			}
 		});
 	}
+	
+	public void hienThiDapAn(JButton bnt) {
+		if (bnt.getText().equals(listQuiz.get(count).getDapAnDung())){
+			countKq++;
+			bnt.setBackground(new Color(0x99FF00)); // Thay đổi màu nền thành màu xanh lá
+			bnt.setForeground(Color.BLUE); // Đặt màu chữ của nút btn_a thành màu đỏ
+			bnt.setEnabled(false); // Vô hiệu hóa nút btn_a
+            Timer timer = new Timer(500, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    newQues();
+                    bnt.setEnabled(true); // Vô hiệu hóa nút btn_a
+                    bnt.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
+                    bnt.setForeground(Color.BLACK);
+                    ((Timer)e.getSource()).stop(); // Dừng timer sau khi đã chuyển câu hỏi mới
+                }
+            });
+            timer.setRepeats(false); // Chỉ chạy một lần
+            timer.start(); // Bắt đầu timer
+		}else {
+			bnt.setBackground(Color.RED); // Thay đổi màu nền thành màu xanh lá
+			bnt.setForeground(Color.WHITE); // Đặt màu chữ của nút btn_a thành màu đỏ
+
+			bnt.setEnabled(false); // Vô hiệu hóa nút btn_a
+            Timer timer = new Timer(500, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    newQues();
+                    bnt.setEnabled(true); // Vô hiệu hóa nút btn_a
+                    bnt.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
+                    bnt.setForeground(Color.BLACK);
+                    ((Timer)e.getSource()).stop(); // Dừng timer sau khi đã chuyển câu hỏi mới
+                }
+            });
+            timer.setRepeats(false); // Chỉ chạy một lần
+            timer.start(); // Bắt đầu timer		
+            }
+	}
+
 	
 	public void mergeQuiz() {
         Collections.shuffle(listQuiz);
