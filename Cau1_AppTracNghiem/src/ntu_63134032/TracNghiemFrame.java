@@ -55,7 +55,7 @@ public class TracNghiemFrame extends JFrame {
 		listQuiz.add(new Quiz("Con gì đập thì sống, không đập thì chết?", "Con tim", "Con bò", "Con sông", "Con công"));
 		listQuiz.add(new Quiz("Trong 1 cuộc thi chạy, nếu bạn vượt qua người thứ 2 bạn sẽ \nđứng thứ mấy?", "Thứ hai", "Thứ nhất", "Chủ nhật", "Thứ ba"));
 		listQuiz.add(new Quiz("Cái gì dài như trái chuối, cầm 1 lúc thì nó chảy nước ra?", "Que kem", "Con giun", "Con ốc sên", "Trái chuối"));
-		listQuiz.add(new Quiz("Con gì mang được cả miếng gỗ lớn nhưng không mang được hòn sỏi?", "Con sông", "Con voi", "Con cá voi", "Con người"));
+		listQuiz.add(new Quiz("Con gì mang được cả miếng gỗ lớn nhưng không mang \nđược hòn sỏi?", "Con sông", "Con voi", "Con cá voi", "Con người"));
 		listQuiz.add(new Quiz("Trò gì càng chơi càng ra nước", "Cờ vua", "Kéo co", "Chèo thuyền", "Bắn cung"));
 		listQuiz.add(new Quiz("Hoa gì nuôi trẻ sớm khuya\r\n"
 				+ "Tháng 10 em nở tỏa hương phố phường!", "Hoa sữa", "Hoa quỳnh", "Hoa ly", "Hoa kiều"));
@@ -129,7 +129,7 @@ public class TracNghiemFrame extends JFrame {
 		lbl_diem.setForeground(new Color(153, 0, 153));
 		lbl_diem.setFont(new Font("Cascadia Code", Font.BOLD | Font.ITALIC, 26));
 		lbl_diem.setBounds(25, 10, 132, 57);
-		contentPane.add(lbl_diem);
+		contentPane.add(lbl_diem); 
 		
 		bnt_new_game = new JButton("New Game");
 		bnt_new_game.setBackground(new Color(255, 255, 204));
@@ -146,6 +146,7 @@ public class TracNghiemFrame extends JFrame {
 		contentPane.add(lbl_diem_cao_nhat);
 		
 		so_cau_hoi = new JComboBox(soCauHoi);
+		so_cau_hoi.setSelectedItem(10); 
 		so_cau_hoi.setBounds(744, 202, 105, 25);
 		contentPane.add(so_cau_hoi);
 		
@@ -191,7 +192,6 @@ public class TracNghiemFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JComboBox<Integer> cb = (JComboBox<Integer>) e.getSource();
                 size = (Integer) cb.getSelectedItem();
-                System.out.println("Selected size: " + size);
             }
         });
 	}
@@ -199,9 +199,10 @@ public class TracNghiemFrame extends JFrame {
 	// Hàm hiển thị đáp án và chuyển qua câu tiếp theo
 	public void hienThiDapAn(JButton btn) {
 		if (btn.getText().equals(listQuiz.get(count).getDapAnDung())){
+			// Nếu đúng tăng kết quả lên 1, chuyển đáp án vừa chọn thành màu xanh lá trong 175ms
 			countKq++;
-			btn.setBackground(new Color(0x99FF00)); // Thay đổi màu nền thành màu xanh lá
-			btn.setForeground(Color.BLUE); // Đặt màu chữ của nút btn_a thành màu đỏ
+			btn.setBackground(new Color(0x99FF00)); 
+			btn.setForeground(Color.BLUE); 
 			// Vô hiệu hóa các nút
 			choPhepBam(false);          
 			Timer timer = new Timer(175, new ActionListener() {
@@ -210,8 +211,9 @@ public class TracNghiemFrame extends JFrame {
                 	// Chuyển qua câu hỏi mới
                     newQues();
                     // Bỏ vô hiệu hóa
-                    choPhepBam(true);                                  
-        			btn.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
+                    choPhepBam(true);               
+                    // Chuyển màu thành mặc định
+        			btn.setBackground(new Color(0x99FFFF)); 
                     btn.setForeground(Color.BLACK);
                     ((Timer)e.getSource()).stop(); // Dừng timer sau khi đã chuyển câu hỏi mới
                 }
@@ -219,8 +221,9 @@ public class TracNghiemFrame extends JFrame {
             timer.setRepeats(false); // Chỉ chạy một lần
             timer.start(); // Bắt đầu timer
 		}else {
-			btn.setBackground(Color.RED); // Thay đổi màu nền thành màu xanh lá
-			btn.setForeground(Color.WHITE); // Đặt màu chữ của nút btn_a thành màu đỏ
+			// Nếu sai chuyển đáp án vừa chọn thành màu đỏ trong 175ms
+			btn.setBackground(Color.RED); 
+			btn.setForeground(Color.WHITE);
 			
 			// Vô hiệu hóa các nút
 			choPhepBam(false);
@@ -230,7 +233,8 @@ public class TracNghiemFrame extends JFrame {
                 	// Chuyển qua câu hỏi mới
                     newQues();
                     // Bỏ vô hiệu hóa
-                    choPhepBam(true);                      
+                    choPhepBam(true);        
+                    // Chuyển màu thành mặc định
         			btn.setBackground(new Color(0x99FFFF)); // Đặt lại màu nền về mặc định
         			btn.setForeground(Color.BLACK);
                     ((Timer)e.getSource()).stop(); // Dừng timer sau khi đã chuyển câu hỏi mới
