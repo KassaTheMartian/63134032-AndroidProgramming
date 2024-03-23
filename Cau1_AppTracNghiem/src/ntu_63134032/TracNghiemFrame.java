@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JComboBox;
 
 
 public class TracNghiemFrame extends JFrame {
@@ -27,6 +28,7 @@ public class TracNghiemFrame extends JFrame {
 	ArrayList<Quiz> listQuiz = new ArrayList<Quiz>();
 	int count = 0;
 	int countKq = 0;
+	int countKqMax = 0;
 	int size = 10;
 	JButton btn_a;
 	JButton btn_b;
@@ -38,13 +40,14 @@ public class TracNghiemFrame extends JFrame {
 	JLabel lbl_cau_hoi;
 	JLabel lblFunQuiz;
 	JLabel lbl_diem;
+	private JLabel lbl_diem_cao_nhat;
 	
 	public TracNghiemFrame() {
 		listQuiz.add(new Quiz("Đuôi thì chẳng thấy, mà có hai đầu?", "Cây cầu", "Cây tre", "Con giun", "Con ốc sên"));
 		listQuiz.add(new Quiz("Cái gì không có chân, không có đuôi, không có cơ thể mà có nhiều đầu?", "Cầu truyền hình", "Cầu khỉ", "Rồng thần", "Con cá"));
 		listQuiz.add(new Quiz("Lịch nào dài nhất?", "Lịch sử", "Lịch vạn niên", "Lịch người Maya", "Lịch sự"));
 		listQuiz.add(new Quiz("Con gì đập thì sống, không đập thì chết?", "Con tim", "Con bò", "Con sông", "Con công"));
-		listQuiz.add(new Quiz("Trong 1 cuộc thi chạy, nếu bạn vượt qua người thứ 2 bạn sẽ đứng thứ mấy?", "Thứ hai", "Thứ nhất", "Chủ nhật", "Thứ ba"));
+		listQuiz.add(new Quiz("Trong 1 cuộc thi chạy, nếu bạn vượt qua người thứ 2 bạn sẽ \nđứng thứ mấy?", "Thứ hai", "Thứ nhất", "Chủ nhật", "Thứ ba"));
 		listQuiz.add(new Quiz("Cái gì dài như trái chuối, cầm 1 lúc thì nó chảy nước ra?", "Que kem", "Con giun", "Con ốc sên", "Trái chuối"));
 		listQuiz.add(new Quiz("Con gì mang được cả miếng gỗ lớn nhưng không mang được hòn sỏi?", "Con sông", "Con voi", "Con cá voi", "Con người"));
 		listQuiz.add(new Quiz("Trò gì càng chơi càng ra nước", "Cờ vua", "Kéo co", "Chèo thuyền", "Bắn cung"));
@@ -52,10 +55,10 @@ public class TracNghiemFrame extends JFrame {
 				+ "Tháng 10 em nở tỏa hương phố phường!", "Hoa sữa", "Hoa quỳnh", "Hoa ly", "Hoa kiều"));
 		listQuiz.add(new Quiz("Câu đố mẹo có đáp án: Con mèo nào cực kỳ sợ chuột?", "Doremon", "Mèo máy Kuro", "Linh miêu", "Pikachu"));
 		listQuiz.add(new Quiz("Làm thế nào để con cua được chín chân?","Luộc","Nhờ Thủy Tinh bắt","Hấp","Nướng"));
-		listQuiz.add(new Quiz("Có ba quả táo trên bàn và bạn lấy đi hai quả. Hỏi bạn còn bao nhiêu quả táo?","2 quả","3 quả","4 quả","1 quả"));
+		listQuiz.add(new Quiz("Có ba quả táo trên bàn và bạn lấy đi hai quả. Hỏi bạn còn \nbao nhiêu quả táo?","2 quả","3 quả","4 quả","1 quả"));
 		listQuiz.add(new Quiz("Tôi có 4 cái chân, 1 cái lưng, nhưng không có cơ thể. Tôi là ai?","Cái ghế","Con bò","Con heo","Con voi"));
 		listQuiz.add(new Quiz("Tại sao 30 người đàn ông và 2 người đàn bà đánh nhau tán loạn?","Đánh cờ","Đánh ghen","Chiến tranh","Cướp bóc"));
-		listQuiz.add(new Quiz("Cái gì mà bạn có, khi bạn chia sẻ với tôi, nhưng khi bạn chia sẻ bạn sẽ không có nó?","Bí mật","Kiến thức","Hiểu biết","Tiền bạc"));
+		listQuiz.add(new Quiz("Cái gì mà bạn có, khi bạn chia sẻ với tôi, nhưng khi bạn chia sẻ \nbạn sẽ không có nó?","Bí mật","Kiến thức","Hiểu biết","Tiền bạc"));
 
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,6 +96,7 @@ public class TracNghiemFrame extends JFrame {
 		contentPane.add(btn_d);
 		
 		txtr_cau_hoi = new JTextArea();
+		txtr_cau_hoi.setColumns(5);
 		txtr_cau_hoi.setRows(10);
 		txtr_cau_hoi.setLineWrap(true);
 		txtr_cau_hoi.setBackground(new Color(255, 255, 255));
@@ -110,8 +114,8 @@ public class TracNghiemFrame extends JFrame {
 		lblFunQuiz = new JLabel("Fun Quiz");
 		lblFunQuiz.setForeground(new Color(153, 0, 153));
 		lblFunQuiz.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFunQuiz.setFont(new Font("Bodoni MT Black", Font.BOLD | Font.ITALIC, 26));
-		lblFunQuiz.setBounds(685, 10, 183, 57);
+		lblFunQuiz.setFont(new Font("Bodoni MT Black", Font.BOLD | Font.ITALIC, 51));
+		lblFunQuiz.setBounds(602, 10, 266, 57);
 		contentPane.add(lblFunQuiz);
 		
 		lbl_diem = new JLabel("Điểm: ");
@@ -125,8 +129,19 @@ public class TracNghiemFrame extends JFrame {
 		bnt_new_game.setBackground(new Color(255, 255, 204));
 		bnt_new_game.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
-		bnt_new_game.setBounds(744, 237, 105, 21);
+		bnt_new_game.setBounds(744, 237, 105, 25);
 		contentPane.add(bnt_new_game);
+		
+		lbl_diem_cao_nhat = new JLabel("Điểm cao nhất: 0");
+		lbl_diem_cao_nhat.setHorizontalAlignment(SwingConstants.LEFT);
+		lbl_diem_cao_nhat.setForeground(new Color(255, 0, 0));
+		lbl_diem_cao_nhat.setFont(new Font("Cascadia Code", Font.BOLD | Font.ITALIC, 26));
+		lbl_diem_cao_nhat.setBounds(194, 10, 290, 57);
+		contentPane.add(lbl_diem_cao_nhat);
+		
+		JComboBox so_cau_hoi = new JComboBox();
+		so_cau_hoi.setBounds(744, 206, 105, 21);
+		contentPane.add(so_cau_hoi);
 		
 		newGame();
 
@@ -251,7 +266,9 @@ public class TracNghiemFrame extends JFrame {
 	// Hàm chuyển qua câu hỏi tiếp theo
 	public void newQues() {
 		lbl_diem.setText("Điểm: " + String.valueOf(countKq));
-		
+		if (countKqMax <= countKq) 	
+			lbl_diem_cao_nhat.setText("Điểm cao nhất: " + String.valueOf(countKq));
+
 		count++;
 		if(count >= size) {
 			if (count == countKq) {
