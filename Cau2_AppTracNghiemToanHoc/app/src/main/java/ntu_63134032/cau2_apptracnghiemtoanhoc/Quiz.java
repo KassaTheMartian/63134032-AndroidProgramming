@@ -25,7 +25,7 @@ public class Quiz {
         // Thêm n-1 phép toán và số kèm theo
         for (int i = 0; i < n - 1; i++) {
             // Chọn ngẫu nhiên một toán tử từ +, -, *
-            char operator = "+-*".charAt(rand.nextInt(3));
+            char operator = "+-*/".charAt(rand.nextInt(4));
             // Thêm toán tử vào chuỗi
             builder.append(" ").append(operator).append(" ");
             // Thêm số tiếp theo vào chuỗi
