@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private int countKq = 0;
     private int seconds = 0;
     private int size = 10;
+    private int doKho = 3;
     private Button btnA;
     private Button btnB;
     private Button btnC;
@@ -35,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvScore;
     private TextView tvTime;
     private TextView tvCount;
-
+    private RadioGroup rgDokho;
 
     private Handler handler = new Handler();
 
@@ -51,25 +54,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         getControls();
-
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
-        listQuiz.add(new Quiz(3));
         newGame();
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +100,18 @@ public class MainActivity extends AppCompatActivity {
         Collections.shuffle(listQuiz);
     }
     public void newGame(){
+
+        RadioButton selectedRb = (RadioButton) findViewById(rgDokho.getCheckedRadioButtonId());
+        String strDoKho = selectedRb.getText().toString();
+        if (strDoKho.equals("2 số")) doKho = 2;
+        if (strDoKho.equals("3 số")) doKho = 3;
+        if (strDoKho.equals("4 số")) doKho = 4;
+
+        listQuiz = new ArrayList<>();
+        for (int i = 0; i < 15; i++){
+            listQuiz.add(new Quiz(doKho));
+        }
+
         mergeQuiz();
         count = 0;
         countKq = 0;
@@ -137,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
         setAns(listQuiz.get(count));
     }
     public void setAns(Quiz quiz){
-
         Random random = new Random();
         ArrayList<Double> options = new ArrayList<>();
 
@@ -191,6 +186,7 @@ public class MainActivity extends AppCompatActivity {
         tvScore = (TextView) findViewById(R.id.tv_score);
         tvTime = (TextView) findViewById(R.id.tv_time);
         tvCount = (TextView) findViewById(R.id.tv_count);
+        rgDokho = (RadioGroup) findViewById(R.id.rg_dokho);
     }
     private Runnable updateTimeRunnable = new Runnable() {
         @Override
