@@ -1,3 +1,9 @@
+# Bài thi giữa kì:  
+# Cau1_AppTracNghiem  
+# Cau2_AppTracNghiemToanHoc  
+# Cau3_AppGioiThieuBanThan  
+
+
 # Bài Tập Android - Lập Trình Thiết Bị Di Động
 
 **Sinh Viên:** Nguyễn Đình Hiệu  
