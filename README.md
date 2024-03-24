@@ -1,7 +1,7 @@
 # Bài thi giữa kì:  
-# Cau1_AppTracNghiem  
-# Cau2_AppTracNghiemToanHoc  
-# Cau3_AppGioiThieuBanThan  
+# Cau1_AppTracNghiem (JavaSwing)  
+# Cau2_AppTracNghiemToanHoc (Android Java)  
+# Cau3_AppGioiThieuBanThan (Android Java)  
 
 
 # Bài Tập Android - Lập Trình Thiết Bị Di Động
