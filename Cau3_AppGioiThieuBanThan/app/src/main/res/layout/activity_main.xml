@@ -56,6 +56,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="988dp"
+            android:src="@drawable/circleavt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
@@ -184,6 +193,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="892dp"
+            android:text="Đây là bài thi giữa kì môn lập trình di động,\nđược hoàn thành vào ngày 24/3/2024.\nBài làm được thực hiện bởi Nguyễn Đình Hiệu\nMSSV: 63134032 - Lớp: 63.CNTT2"
+            android:textColor="#EFDFDF"
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="116dp"
             android:layout_marginTop="528dp"
             android:text="Đắk Lắk"
@@ -221,7 +241,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="68dp"
             android:layout_marginTop="860dp"
-            android:text="Travis Scott"
+            android:text="24 thg 3, 2024"
             android:textColor="#EFDFDF"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"
