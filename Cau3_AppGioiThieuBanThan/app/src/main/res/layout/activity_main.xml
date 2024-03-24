@@ -24,15 +24,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="350dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="1284dp"
-            android:background="#7A7F83"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
@@ -68,8 +59,8 @@
         <ImageView
             android:layout_width="196dp"
             android:layout_height="147dp"
-            android:layout_marginStart="164dp"
-            android:layout_marginTop="984dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="1020dp"
             android:scaleType="centerCrop"
             android:src="@drawable/bai1"
 
@@ -77,23 +68,23 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_width="196dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="164dp"
-            android:layout_marginTop="1140dp"
+            android:layout_width="135dp"
+            android:layout_height="276dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="1020dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/and"
+            android:src="@drawable/bai2"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_width="135dp"
-            android:layout_height="276dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="984dp"
+            android:layout_width="196dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="1176dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/bai2"
-
+            android:src="@drawable/and"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -170,19 +161,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="1292dp"
-            android:text="Thích"
-            android:textColor="#EFDFDF"
-            android:textSize="17dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="168dp"
-            android:layout_marginTop="1292dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="1316dp"
             android:text="Bình luận"
             android:textColor="#EFDFDF"
             android:textSize="17dp"
@@ -192,8 +172,46 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="1316dp"
+            android:text="Thích"
+            android:textColor="#EFDFDF"
+            android:textSize="17dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="136dp"
+            android:layout_marginTop="1316dp"
+            android:src="@drawable/comment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="276dp"
+            android:layout_marginTop="1316dp"
+            android:src="@drawable/share"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="1308dp"
+            android:background="#7A7F83"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginStart="304dp"
-            android:layout_marginTop="1292dp"
+            android:layout_marginTop="1316dp"
             android:text="Chia sẻ"
             android:textColor="#EFDFDF"
             android:textSize="17dp"
@@ -256,11 +274,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="892dp"
-            android:text="Đây là bài thi giữa kì môn lập trình di động,\nđược hoàn thành vào ngày 24/3/2024.\nBài làm được thực hiện bởi Nguyễn Đình Hiệu\nMSSV: 63134032 - Lớp: 63.CNTT2"
+            android:text="Đây là bài thi giữa kì môn lập trình di động, được hoàn thành vào ngày 24/3/2024.Bài làm được thực hiện bởi Nguyễn Đình Hiệu \nMSSV: 63134032 - Lớp: 63.CNTT2.\nCác bài thi được lưu trên github."
             android:textColor="#EFDFDF"
             android:textSize="17dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -386,17 +404,8 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="1292dp"
+            android:layout_marginTop="1316dp"
             android:src="@drawable/heart"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="136dp"
-            android:layout_marginTop="1292dp"
-            android:src="@drawable/comment"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
