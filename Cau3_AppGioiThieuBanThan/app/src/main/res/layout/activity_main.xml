@@ -74,7 +74,6 @@
             android:layout_marginTop="1010dp"
             android:scaleType="centerCrop"
             android:src="@drawable/bai2"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -113,11 +112,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="52dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
+            android:layout_marginStart="40dp"
             android:layout_marginTop="292dp"
-            android:text="bạn bè"
+            android:text="Android Exercises"
             android:textColor="#EFDFDF"
             android:textSize="17dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -313,7 +312,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="384dp"
-            android:text="Travis Scott"
+            android:text="Travis Scott ft. 21 Savage"
             android:textColor="#EFDFDF"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -331,11 +330,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="34dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="292dp"
-            android:text="253"
+            android:text="19"
             android:textColor="@color/white"
             android:textSize="17dp"
             android:textStyle="bold"
@@ -358,7 +357,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="80dp"
             android:layout_marginTop="360dp"
-            android:text="TIL FURTHE NOTICE"
+            android:text="TIL FURTHER NOTICE"
             android:textColor="@color/white"
             android:textSize="17dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -405,7 +404,7 @@
             android:layout_height="25dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="1316dp"
-            android:src="@drawable/heart"
+            android:src="@drawable/redheart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -415,6 +414,26 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="528dp"
             android:src="@drawable/location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="428dp"
+            android:elevation="10dp"
+            android:src="@drawable/github"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="192dp"
+            android:layout_marginTop="428dp"
+            android:elevation="10dp"
+            android:src="@drawable/coin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -457,7 +476,7 @@
         <ImageView
             android:paddingVertical="4dp"
             android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:layout_height="32dp"
             android:layout_marginStart="312dp"
             android:layout_marginTop="424dp"
             android:background="@drawable/rounded_rectangle"
@@ -473,11 +492,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="424dp"
             android:background="@drawable/rounded_rectangle"
-            android:paddingHorizontal="20dp"
+            android:backgroundTint="@color/white"
+            android:paddingLeft="21dp"
             android:paddingVertical="6dp"
-            android:text="Thêm bạn bè"
+            android:text="Github"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -489,10 +509,9 @@
             android:layout_marginStart="164dp"
             android:layout_marginTop="424dp"
             android:background="@drawable/rounded_rectangle"
-            android:backgroundTint="#3A3B3C"
-            android:paddingHorizontal="20dp"
+            android:paddingLeft="20dp"
             android:paddingVertical="6dp"
-            android:text="Nhắn tin"
+            android:text="Donate"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="15dp"
