@@ -485,10 +485,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <Button
             android:id="@+id/textView2"
             android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="424dp"
             android:background="@drawable/rounded_rectangle"
@@ -503,9 +503,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <Button
             android:layout_width="140dp"
-            android:layout_height="wrap_content"
+            android:layout_height="32dp"
             android:layout_marginStart="164dp"
             android:layout_marginTop="424dp"
             android:background="@drawable/rounded_rectangle"
